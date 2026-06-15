@@ -1,4 +1,4 @@
-# Morse Link V1
+# Morse Link
 
 Local network text messaging with Morse code.
 
