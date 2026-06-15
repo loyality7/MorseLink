@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Morse Link</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Connection Request Modal -->
+    <div id="connection-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="request-from">Connection Request</h3>
+            <p id="request-msg">wants to connect with you</p>
+            <div class="modal-buttons">
+                <button id="accept-btn" class="accept-btn">Accept</button>
+                <button id="reject-btn" class="reject-btn">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Screen -->
+    <div id="join-screen" class="screen active">
+        <div class="join-container">
+            <h1>MORSE LINK</h1>
+            <p style="color: #666; margin-bottom: 30px;">Connect with nearby users</p>
+            <input type="text" id="username-input" placeholder="Enter your name" maxlength="20">
+            <button id="join-btn">Join Network</button>
+        </div>
+    </div>
+
+    <!-- Discovery Screen -->
+    <div id="discovery-screen" class="screen">
+        <div class="discovery-header">
+            <h2>Available Peers</h2>
+            <p id="my-info">Your Code: <strong>----</strong> | Name: <strong id="my-name">--</strong></p>
+        </div>
+        <div id="peers-list" class="peers-list"></div>
+        <button id="leave-btn" class="leave-btn">Leave</button>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-screen" class="screen">
+        <div class="chat-header">
+            <h2 id="peer-name">Connecting...</h2>
+            <p id="peer-code">Code: ----</p>
+            <button id="back-btn" class="back-btn">Back</button>
+        </div>
+        
+        <!-- Pending Connection Status -->
+        <div id="connection-status" class="connection-status">
+            <div class="status-content">
+                <div class="status-spinner"></div>
+                <p id="status-text">Waiting for <strong id="status-peer-name"></strong> to accept...</p>
+            </div>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <textarea id="message-input" placeholder="Type message..." disabled></textarea>
+            <button id="send-btn" disabled>→</button>
+        </div>
+    </div>
+
+    <script src="morse-encoder.js"></script>
+    <script src="morse-audio.js"></script>
+    <script src="websocket-handler.js"></script>
+    <script src="peer-discovery.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
